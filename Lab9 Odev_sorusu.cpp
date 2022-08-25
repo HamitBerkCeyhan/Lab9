@@ -25,26 +25,26 @@ int main()
 	printf("\n");
 	printf("Yapmak istediginiz Islemi Seciniz:\n\n");
 	printf("1-Yeni Kayit Eklemek icin\n2-Kayit Listeleme icin\n3-Kayit Guncelleme icin\n4-Sinif Ortalamasini Hesaplamak icin\n5-Ortalamaya gore En Basarili Ogrenci icin \n\nSeciminiz: ");
-    scanf("%d",&secim);
-    if(secim == 1)
-    {
-    	printf("\n");
-    	printf("Kac Adet Yeni Kayit Ekleyeceksiniz?: ");
-    	scanf("%d",&m);
-    	printf("\n");
-    	ptr=(struct student *)realloc(ptr,(n+m)*sizeof(struct student));
-    	for(i=n;i<(n+m);i++)
-    	{
+        scanf("%d",&secim);
+          if(secim == 1)
+        {
+    	  printf("\n");
+    	  printf("Kac Adet Yeni Kayit Ekleyeceksiniz?: ");
+    	  scanf("%d",&m);
+    	  printf("\n");
+    	  ptr=(struct student *)realloc(ptr,(n+m)*sizeof(struct student));
+    	     for(i=n;i<(n+m);i++)
+    	  {
     		printf("Ogrencinin numara, ad, vize ve final bilgilerini giriniz:  \n");
-		    scanf("%d %s %d %d",&(ptr+i)->number,&(ptr+i)->name,&(ptr+i)->vize,&(ptr+i)->final);
-		}	
+                scanf("%d %s %d %d",&(ptr+i)->number,&(ptr+i)->name,&(ptr+i)->vize,&(ptr+i)->final);
+	   }	
 	}
-    else if(secim == 2)
-    {
-    	for(i=0; i<(n+m); i++)
-    	{
+         else if(secim == 2)
+        {
+    	    for(i=0; i<(n+m); i++)
+    	    {
     		printf("%d %s %d %d \n",(ptr+i)->number,(ptr+i)->name,(ptr+i)->vize,(ptr+i)->final);
-		}
+	    }
 	}
 	else if(secim == 3)
 	{
@@ -54,7 +54,7 @@ int main()
 		scanf("%d %s %d %d",&(ptr+k)->number,&(ptr+k)->name,&(ptr+k)->vize,&(ptr+k)->final);
 		printf("\n");
 		for(i=0; i<(n+m); i++)
-    	{
+                {
     		printf("%d %s %d %d \n",(ptr+i)->number,(ptr+i)->name,(ptr+i)->vize,(ptr+i)->final);
 		}
 	}
