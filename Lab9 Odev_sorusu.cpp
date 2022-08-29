@@ -68,7 +68,7 @@ int main()
 		{
 			toplam=toplam+ ((ptr+i)->vize)*0.4 + ((ptr+i)->final)*0.6;
 		}
-		ort=toplam/(n+m);
+		ort=toplam/(i);
 		printf("Ortlama: %d",ort);
 	    }
 	    break;
