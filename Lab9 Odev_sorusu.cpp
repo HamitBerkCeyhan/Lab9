@@ -23,52 +23,57 @@ int main()
 		scanf("%d %s %d %d",&(ptr+i)->number,&(ptr+i)->name,&(ptr+i)->vize,&(ptr+i)->final);
 	}
 	printf("\n");
+	enbas:
 	printf("Yapmak istediginiz Islemi Seciniz:\n\n");
 	printf("1-Yeni Kayit Eklemek icin\n2-Kayit Listeleme icin\n3-Kayit Guncelleme icin\n4-Sinif Ortalamasini Hesaplamak icin\n5-Ortalamaya gore En Basarili Ogrenci icin \n\nSeciminiz: ");
-        scanf("%d",&secim);
-          if(secim == 1)
-        {
-    	  printf("\n");
-    	  printf("Kac Adet Yeni Kayit Ekleyeceksiniz?: ");
-    	  scanf("%d",&m);
-    	  printf("\n");
-    	  ptr=(struct student *)realloc(ptr,(n+m)*sizeof(struct student));
-    	     for(i=n;i<(n+m);i++)
-    	  {
+    scanf("%d",&secim);
+    switch(secim)
+    {
+    	case 1:
+    	printf("\n");
+    	printf("Kac Adet Yeni Kayit Ekleyeceksiniz?: ");
+    	scanf("%d",&m);
+    	printf("\n");
+    	ptr=(struct student *)realloc(ptr,(n+m)*sizeof(struct student));
+    	for(i=n;i<(n+m);i++)
+    	{
     		printf("Ogrencinin numara, ad, vize ve final bilgilerini giriniz:  \n");
-                scanf("%d %s %d %d",&(ptr+i)->number,&(ptr+i)->name,&(ptr+i)->vize,&(ptr+i)->final);
-	   }	
-	}
-         else if(secim == 2)
+		    scanf("%d %s %d %d",&(ptr+i)->number,&(ptr+i)->name,&(ptr+i)->vize,&(ptr+i)->final);
+		}	
+		break;
+		case 2:
         {
-    	    for(i=0; i<(n+m); i++)
-    	    {
+    	for(i=0; i<(n+m); i++)
+    	{
     		printf("%d %s %d %d \n",(ptr+i)->number,(ptr+i)->name,(ptr+i)->vize,(ptr+i)->final);
-	    }
-	}
-	else if(secim == 3)
-	{
+		}
+	    } 
+	    break;
+	    case 3:
+	    {
 		printf("Hangi sirada ki kayidi yenilemek istiyorsunuz: ");
 		scanf("%d",&k);
 		printf("Ogrencinin numara, ad, vize ve final bilgilerini giriniz:  \n");
 		scanf("%d %s %d %d",&(ptr+k)->number,&(ptr+k)->name,&(ptr+k)->vize,&(ptr+k)->final);
 		printf("\n");
 		for(i=0; i<(n+m); i++)
-                {
+    	{
     		printf("%d %s %d %d \n",(ptr+i)->number,(ptr+i)->name,(ptr+i)->vize,(ptr+i)->final);
 		}
-	}
-	else if(secim == 4)
-	{
+	    }
+	    break;
+	    case 4:
+	    {
 		for(i=0; i<(n+m); i++)
 		{
 			toplam=toplam+ ((ptr+i)->vize)*0.4 + ((ptr+i)->final)*0.6;
 		}
 		ort=toplam/(n+m);
 		printf("Ortlama: %d",ort);
-	}
-	else if(secim == 5)
-	{
+	    }
+	    break;
+        case 5:
+	    {
 		for(i=0; i<(n+m); i++)
 		{
 			ort= ((ptr+i)->vize*0.4+(ptr+i)->final*0.6);
@@ -80,5 +85,9 @@ int main()
 			}
 		}
 		printf("Ortalamaya gore en basarili ogrenci = %d %s %d", no, ad, eb_ort);
-	}
+	    }
+	    break;
+    }   
+    printf("Başka islem yapmak istiyorsaniz entera basiniz: ");
+    goto enbas;
 }
