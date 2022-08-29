@@ -25,7 +25,7 @@ int main()
 	printf("\n");
 	enbas:
 	printf("Yapmak istediginiz Islemi Seciniz:\n\n");
-	printf("1-Yeni Kayit Eklemek icin\n2-Kayit Listeleme icin\n3-Kayit Guncelleme icin\n4-Sinif Ortalamasini Hesaplamak icin\n5-Ortalamaya gore En Basarili Ogrenci icin \n\nSeciminiz: ");
+	printf("1-Yeni Kayit Eklemek icin\n2-Kayit Listeleme icin\n3-Kayit Guncelleme icin\n4-Sinif Ortalamasini Hesaplamak icin\n5-Ortalamaya gore En Basarili Ogrenci icin \n6-Cikis...\n\nSeciminiz: ");
     scanf("%d",&secim);
     switch(secim)
     {
@@ -87,7 +87,12 @@ int main()
 		printf("Ortalamaya gore en basarili ogrenci = %d %s %d", no, ad, eb_ort);
 	    }
 	    break;
-    }   
-    printf("Başka islem yapmak istiyorsaniz entera basiniz: ");
+	    case 6:
+		{
+	        exit(0);
+	        break;
+		}	
+    } 
+    printf("\n");
     goto enbas;
 }
